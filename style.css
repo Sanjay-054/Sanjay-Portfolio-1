@@ -490,7 +490,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
+  background-color: inherit;  /* Inherits from header (light/dark) */
+  color: inherit;
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
@@ -500,17 +501,37 @@ nav {
 nav .nav-brand {
   font-size: 1.5rem;
   font-weight: bold;
+  color: inherit;
 }
 
 nav .nav-links {
   display: flex;
   gap: 1rem;
+  background-color: inherit;  /* Inherits background in all modes */
+}
+
+nav a {
+  color: inherit;              /* Matches light or dark mode */
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #007bff;
+}
+
+nav a.active {
+  color: #007bff;
 }
 
 nav .nav-toggle {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
+  color: inherit;
 }
 
 /* ======= RESPONSIVE MOBILE NAV ======= */
@@ -518,7 +539,6 @@ nav .nav-toggle {
   nav .nav-links {
     display: none;
     flex-direction: column;
-    background-color: #fff;
     position: absolute;
     top: 100%;
     right: 0;
@@ -536,11 +556,11 @@ nav .nav-toggle {
   }
 }
 
-/* DARK MODE NAV */
+/* ======= DARK MODE NAV INHERITS ========= */
 body.dark nav {
-  background-color: #1a1a1a;
+  background-color: inherit;
 }
 
 body.dark nav .nav-links {
-  background-color: #1a1a1a;
+  background-color: inherit;
 }
