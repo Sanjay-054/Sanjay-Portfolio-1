@@ -485,3 +485,62 @@ body.dark .timeline-content h3 {
 body.dark .timeline-content small {
   color: #aaa;
 }
+/* ======= NAVIGATION STYLES ======= */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav .nav-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+nav .nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ======= RESPONSIVE MOBILE NAV ======= */
+@media (max-width: 768px) {
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  nav .nav-links.active {
+    display: flex;
+  }
+
+  nav .nav-toggle {
+    display: block;
+  }
+}
+
+/* DARK MODE NAV */
+body.dark nav {
+  background-color: #1a1a1a;
+}
+
+body.dark nav .nav-links {
+  background-color: #1a1a1a;
+}
