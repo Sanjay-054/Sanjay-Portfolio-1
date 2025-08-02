@@ -49,21 +49,17 @@ nav a:hover {
 
 nav a.active {
   color: #007bff;
-  text-decoration: underline;
 }
 
-/* === Toggle Button (Always Top-Right) === */
+/* === Toggle Button (Right Side) === */
 #themeToggle {
-  position: fixed;
-  top: 15px;
-  right: 15px;
+  justify-self: end; /* Push to right side */
   background: #444;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 5px;
-  z-index: 9999;
   transition: background 0.3s ease;
 }
 
@@ -71,18 +67,10 @@ nav a.active {
   background: #666;
 }
 
-/* Responsive Adjustments for Toggle Button */
-@media (max-width: 480px) {
-  #themeToggle {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* === Responsive Header === */
+/* === Responsive Design === */
 @media (max-width: 768px) {
   header {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack all in one column */
     text-align: center;
   }
 
@@ -94,6 +82,43 @@ nav a.active {
   nav {
     margin-bottom: 0.5rem;
   }
+
+  #themeToggle {
+    justify-self: center;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  nav a {
+    margin: 0 8px;
+    font-size: 0.9rem;
+  }
+
+  #themeToggle {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* === Theme Toggle Button === */
+button#themeToggle {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+button#themeToggle:hover {
+  background: #666;
 }
 
 /* === Main Layout === */
@@ -192,22 +217,34 @@ main {
   text-align: center;
 }
 
-/* Social Icons Colors */
 .contact-section .fa-envelope {
   color: #d93025;
 }
+
 .contact-section .fa-phone-alt {
   color: #28a745;
 }
+
 .contact-section .fa-github {
   color: #333;
 }
+
 .contact-section .fa-instagram {
   color: #e1306c;
 }
+
 .contact-section .fa-linkedin {
   color: #0077b5;
 }
+
+body.dark .contact-section a {
+  color: #66aaff;
+}
+
+body.dark .contact-section i {
+  color: #66aaff;
+}
+
 
 /* === Project Section === */
 .project-section {
@@ -278,6 +315,66 @@ main {
   margin-top: 0.5rem;
 }
 
+/* === Fade-in Animation === */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Dark Theme === */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark header {
+  background-color: #1f1f1f;
+}
+
+body.dark nav a {
+  color: #e0e0e0;
+}
+
+body.dark .btn {
+  background: #1a73e8;
+}
+
+body.dark .btn:hover {
+  background: #125fbb;
+}
+
+body.dark .contact-section i {
+  color: #66aaff;
+}
+
+body.dark .fa-envelope {
+  color: #ff6b6b;
+}
+
+body.dark .project-card {
+  background: #1e1e1e;
+  color: #f4f4f4;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .project-card h2 {
+  color: #66aaff;
+}
+
+body.dark .cert-card {
+  background: #1e1e1e;
+  color: #f4f4f4;
+}
 /* === Experience Section === */
 .experience-section {
   padding: 2rem;
@@ -292,6 +389,7 @@ main {
   color: black;
 }
 
+/* Timeline Container */
 .timeline {
   position: relative;
   margin: 2rem 0;
@@ -354,11 +452,91 @@ main {
   margin-bottom: 0.4rem;
 }
 
-/* === Dark Theme === */
+/* === Dark Mode for Experience === */
+body.dark .timeline {
+  border-left: 3px solid #66aaff;
+}
+
+body.dark .timeline-icon {
+  background: #66aaff;
+  box-shadow: 0 0 0 3px #66aaff33;
+}
+
+body.dark .timeline-content {
+  background: #1e1e1e;
+  color: #f4f4f4;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .timeline-content h3 {
+  color: #66aaff;
+}
+/* === Responsive Design === */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    display: block;
+    margin: 8px 0;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+
+  .project-section {
+    padding: 1rem;
+  }
+}
+
+/* For phones and very small screens */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+
+  footer .social-icons i {
+    font-size: 1.2rem;
+  }
+}
+nav a.active {
+  color: #007bff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+body.dark nav a.active {
+  color: #66aaff;
+}
+/* ========================================
+   ✅ DARK MODE FIXES AND THEME CONSISTENCY
+======================================== */
+
+/* General Text */
 body.dark {
   background-color: #121212;
   color: #e0e0e0;
 }
+
+/* Header & Navigation */
 body.dark header {
   background-color: #1f1f1f;
 }
@@ -368,39 +546,56 @@ body.dark nav a {
 body.dark nav a.active {
   color: #66aaff;
 }
+
+/* Buttons */
 body.dark .btn {
   background: #1a73e8;
 }
 body.dark .btn:hover {
   background: #125fbb;
 }
+
+/* Section Headings */
 body.dark h2,
 body.dark h3,
 body.dark .cert-section h2,
 body.dark .experience-section h2 {
   color: #66aaff;
 }
+
+/* Skills Text */
 body.dark .skill-item p {
   color: #e0e0e0;
 }
-body.dark .project-card,
-body.dark .cert-card,
-body.dark .timeline-content {
+
+/* Project Cards */
+body.dark .project-card {
   background: #1e1e1e;
   color: #f4f4f4;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
 }
-body.dark .project-card h2,
-body.dark .timeline-content h3 {
+body.dark .project-card h2 {
   color: #66aaff;
 }
-body.dark .contact-section a,
+
+/* Certification Cards */
+body.dark .cert-card {
+  background: #1e1e1e;
+  color: #f4f4f4;
+}
+
+/* Contact Section */
+body.dark .contact-section a {
+  color: #66aaff;
+}
 body.dark .contact-section i {
   color: #66aaff;
 }
 body.dark .fa-envelope {
   color: #ff6b6b;
 }
+
+/* Timeline (Experience) */
 body.dark .timeline {
   border-left: 3px solid #66aaff;
 }
@@ -408,12 +603,102 @@ body.dark .timeline-icon {
   background: #66aaff;
   box-shadow: 0 0 0 3px #66aaff33;
 }
+body.dark .timeline-content {
+  background: #1e1e1e;
+  color: #f4f4f4;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+body.dark .timeline-content h3 {
+  color: #66aaff;
+}
+/* === Theme Toggle Button (Always Top Right) === */
+#themeToggle {
+  position: fixed; /* Always stays in top-right */
+  top: 15px;
+  right: 15px;
+  background: #444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 9999; /* Always on top */
+  transition: background 0.3s ease;
+}
 
-/* === Fade-in Animation === */
-.fade-in {
-  animation: fadeIn 1s ease-in;
+#themeToggle:hover {
+  background: #666;
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Keep Dark Mode Toggle Button on Right Side for All Devices */
+#themeToggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  z-index: 1000; /* Ensure it stays on top */
 }
+
+#themeToggle:hover {
+  background: #666;
+}
+
+/* Adjust size for smaller devices */
+@media (max-width: 480px) {
+  #themeToggle {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+#typewriter {
+  font-weight: bold;
+  color: #007bff;
+  border-right: 2px solid #007bff;
+  padding-right: 5px;
+  white-space: nowrap;
+}
+.skills-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  background-color: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 20px;
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  background-color: #007bff;
+  border-radius: 20px;
+  transition: width 1s ease-in-out;
+}
+
+.dark .progress-bar {
+  background-color: #444;
+}
+
+.dark .progress {
+  background-color: #00bfff;
+}
+
+
