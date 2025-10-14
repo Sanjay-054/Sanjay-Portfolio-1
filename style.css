@@ -564,3 +564,72 @@ body.dark nav {
 body.dark nav .nav-links {
   background-color: inherit;
 }
+/* Contact Section Styling */
+.contact-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--text-color, #222);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background-color: var(--card-bg, #f8f8f8);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.contact-icon {
+  font-size: 1.6rem;
+  color: var(--accent-color, #007bff);
+}
+
+.contact-card a {
+  color: var(--text-color, #222);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-card a:hover {
+  color: var(--accent-color, #007bff);
+}
+
+/* Dark Mode Variables */
+body.dark {
+  --text-color: #f8f9fa;
+  --card-bg: #1e1e1e;
+  --accent-color: #0dcaf0;
+  background-color: #121212;
+  color: #f8f9fa;
+}
+
+body.dark .contact-card {
+  box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+}
+
+body.dark .contact-card:hover {
+  box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+}
