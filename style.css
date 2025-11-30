@@ -633,3 +633,22 @@ body.dark .contact-card {
 body.dark .contact-card:hover {
   box-shadow: 0 6px 20px rgba(255,255,255,0.2);
 }
+.project-card img {
+  display:block;
+  margin: 0 auto;
+}
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.project-image {
+  width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
