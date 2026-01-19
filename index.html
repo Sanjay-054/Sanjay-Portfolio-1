@@ -25,12 +25,22 @@
 
   <main class="fade-in">
     <section class="about">
-      <img src="my picture.jpg" alt="Sanjay A.K" class="profile-pic" />
+      <img src="My Image.jpeg" alt="Sanjay A.K" class="profile-pic" id="profilePhoto" />
       <h2>About Me</h2>
       <h2>I am a <span id="typewriter"></span></h2>
-      <p>Hello! I'm Sanjay A.K, an enthusiastic tech learner and a growing software engineer with practical exposure to automation testing and full-stack development.</p>
-      <a href="Sanjay_AK_ATS_Resume.pdf" download class="btn">Download Resume</a>
+      <p> I'm Sanjay A.K, 
+Aspiring IT professional with a strong foundation in full-stack development and quality assurance.  
+I hold a BCA degree and have gained hands-on experience through internships and projects in web development and automation testing.  
+Actively participated in hackathons and having served as Secretary of the PCEC CLG Empowerment Cell, I developed leadership, teamwork, and problem-solving skills.  
+I have also presented and published project abstracts at international conferences.
+</p>
+      <a href="Sanjay A K Resuma.pdf" download class="btn">Download Resume</a>
     </section>
+    <!-- Modal Structure -->
+<div id="photoModal" class="image-modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalProfile">
+</div>
   </main>
 
   <script>
@@ -96,4 +106,27 @@
 
     typeEffect();
   });
+   const profilePhoto = document.getElementById('profilePhoto');
+  const photoModal = document.getElementById('photoModal');
+  const modalProfile = document.getElementById('modalProfile');
+  const closeBtn = photoModal.querySelector('.close');
+
+  // Open modal on click
+  profilePhoto.addEventListener('click', () => {
+    modalProfile.src = profilePhoto.src;
+    photoModal.style.display = "block";
+  });
+
+  // Close modal on X click
+  closeBtn.addEventListener('click', () => {
+    photoModal.style.display = "none";
+  });
+
+  // Close modal if clicked outside the image
+  photoModal.addEventListener('click', (e) => {
+    if (e.target === photoModal) {
+      photoModal.style.display = "none";
+    }
+  });
+
 </script>
