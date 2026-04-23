@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <canvas id="bg-canvas"></canvas>
   <header>
     <h1>CERTIFICATIONS & ACHIEVEMENTS</h1>
     <nav>
@@ -23,6 +24,7 @@
   </header>
 
   <main class="fade-in cert-section">
+    
 
     <!-- Certifications Section -->
     <h2>Certifications</h2>
@@ -147,6 +149,100 @@
     });
 
   });
+
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [], orbs = [];
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function isDark() { return document.body.classList.contains('dark'); }
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.r = Math.random() * 1.8 + 0.4;
+      this.sx = (Math.random() - 0.5) * 0.4;
+      this.sy = (Math.random() - 0.5) * 0.4;
+      this.a = Math.random() * 0.5 + 0.1;
+    }
+    update() {
+      this.x += this.sx; this.y += this.sy;
+      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = isDark()
+        ? `rgba(102,170,255,${this.a})`
+        : `rgba(0,123,255,${this.a * 0.7})`;
+      ctx.fill();
+    }
+  }
+
+  class Orb {
+    constructor(i) {
+      this.x = Math.random() * W; this.y = Math.random() * H;
+      this.r = 130 + Math.random() * 100;
+      this.sx = (Math.random() - 0.5) * 0.15;
+      this.sy = (Math.random() - 0.5) * 0.15;
+      this.hue = [210, 240, 200, 190, 225][i];
+    }
+    update() {
+      this.x += this.sx; this.y += this.sy;
+      if (this.x < -this.r) this.x = W + this.r;
+      if (this.x > W + this.r) this.x = -this.r;
+      if (this.y < -this.r) this.y = H + this.r;
+      if (this.y > H + this.r) this.y = -this.r;
+    }
+    draw() {
+      const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
+      const a = isDark() ? 0.07 : 0.11;
+      g.addColorStop(0, `hsla(${this.hue},85%,60%,${a})`);
+      g.addColorStop(1, `hsla(${this.hue},85%,60%,0)`);
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < 80; i++) particles.push(new Particle());
+  for (let i = 0; i < 5; i++) orbs.push(new Orb(i));
+
+  function loop() {
+    ctx.clearRect(0, 0, W, H);
+    orbs.forEach(o => { o.update(); o.draw(); });
+    particles.forEach(p => { p.update(); p.draw(); });
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 100) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = isDark()
+            ? `rgba(102,170,255,${(1-d/100)*0.15})`
+            : `rgba(0,100,255,${(1-d/100)*0.12})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
 
 
   </script>
