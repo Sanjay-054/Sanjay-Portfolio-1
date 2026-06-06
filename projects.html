@@ -3,235 +3,398 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects</title>
+  <title>Projects - SANJAY A.K</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="fevicon image.png">
-
+  
+  <style>
+    /* Crucial layer alignment fixes to prevent canvas from blocking layout selections */
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    header {
+      position: relative;
+      z-index: 1030;
+    }
+    main {
+      position: relative;
+      z-index: 2;
+    }
+    [data-bs-theme="dark"] body {
+      background-color: #121212;
+      color: #fff;
+    }
+    /* Fixed aspect-ratio image box controls */
+    .card-img-container {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.05);
+    }
+    .card-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  </style>
 </head>
 <body>
-  <canvas id="bg-canvas"></canvas>
-  <header>
-    <h1>MY PROJECTS</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="certifications.html">Certifications</a>
-      <a href="skills.html">Skills</a>
-      <a href="experience.html">Experience</a>
-      <a href="projects.html" class="active">Projects</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button id="themeToggle">🌙</button>
 
+  <canvas id="bg-canvas"></canvas>
+
+  <header class="border-bottom border-secondary border-opacity-25">
+    <div class="d-flex align-items-center justify-content-between px-3 py-2">
+      <h1 class="m-0 h3 fw-bold uppercase tracking-wider">PROJECTS</h1>
+
+      <nav class="d-none d-md-flex align-items-center">
+        <a href="index.html" class="me-3 text-decoration-none">Home</a>
+        <a href="certifications.html" class="me-3 text-decoration-none">Certifications</a>
+        <a href="skills.html" class="me-3 text-decoration-none">Skills</a>
+        <a href="experience.html" class="me-3 text-decoration-none">Experience</a>
+        <a href="projects.html" class="active me-3 text-decoration-none">Projects</a>
+        <a href="contact.html" class="text-decoration-none">Contact</a>
+      </nav>
+
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-secondary me-2 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav">☰</button>
+        <button id="themeToggle" class="btn btn-sm btn-outline-secondary">🌙</button>
+      </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start bg-body text-body" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel" style="z-index: 1045;">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold" id="offcanvasNavLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <nav class="nav flex-column gap-2 fs-5">
+          <a class="nav-link py-2 ps-0 text-decoration-none" href="index.html">Home</a>
+          <a class="nav-link py-2 ps-0 text-decoration-none" href="certifications.html">Certifications</a>
+          <a class="nav-link py-2 ps-0 text-decoration-none" href="skills.html">Skills</a>
+          <a class="nav-link py-2 ps-0 text-decoration-none" href="experience.html">Experience</a>
+          <a class="nav-link py-2 ps-0 text-decoration-none" href="projects.html">Projects</a>
+          <a class="nav-link py-2 ps-0 text-decoration-none" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
   </header>
 
-  <main class="fade-in project-section">
-    <div class="project-card">
-      <center>
-      <img src="Home page.png" alt="Exam Seating Arrangement Project" class="project-image" width="400" height="210">
-      </center>
-      <h2>1. Student Examination Seating Arrangement</h2>
-      <p><strong>Duration:</strong> Jan 2025 – Mar 2025</p>
-      <p>This web-based application is designed to streamline the exam seating arrangement process in educational institutions. It provides admin functionalities for managing seating and student access to view assigned seats.</p>
-      <p><strong>Skills:</strong> Python, HTML, CSS, SQL, Flask</p>
-      
-    </div>
-    <div class="project-card">
-      <center>
-      <img src="save.PNG" alt="Exam Seating Arrangement Project" class="project-image" width="400" height="210">
-      </center>
-      <h2>2. ALS Bazzar E-commerce website</h2>
-      <p><strong>Duration:</strong> Jan 2025 – Mar 2025</p>
-      <p> An eCommerce website offers customers a convenient online platform to browse products, compare options, add items to a cart, and complete secure purchases, providing a smooth and efficient shopping experience.</p>
-      <p><strong>Skills:</strong> HTML, CSS, JavaScript</p>
-      
-    </div>
-<div class="project-card">
-  <center>
-      <img src="Admin Page.PNG" alt="Exam Seating Arrangement Project" class="project-image" width="400" height="210">
-      </center>
-      <h2>3. Multi-Layered Protection For Data Consistency And Regulatory Alignment</h2>
-      <p><strong>Duration:</strong> Aug 2025 – Sep 2025</p>
-      <p>Developed a secure web application for the non-metallic industry to manage sensitive data. Users upload files encrypted using DES, with keys wrapped via Fernet. Admins review and approve uploads, ensuring role-based access. The system includes encrypted storage, secure authentication, and an intuitive admin dashboard.</p>
-      <p><strong>Skills:</strong> Python, HTML, CSS, SQL, Flask, DES Algorithm.</p>
-      
-    </div>
+  <main class="py-5">
+    <div class="container">
+      <h2 class="mb-5 display-6 fw-bold">My Projects</h2>
 
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-    <div class="project-card">
-       <center>
-      <img src="home portfolio.PNG" alt="Exam Seating Arrangement Project" class="project-image" width="400" height="210">
-      </center>
-      <h2>4. Portfolio Website</h2>
-      <p>My portfolio website is a fully designed and developed personal platform that highlights my skills, projects, and professional journey. Built with a clean layout and responsive design, it provides an intuitive user experience across all devices. This project showcases my ability to work with front-end technologies, organize content effectively, and create a visually appealing interface that represents my identity as a developer. It reflects both my creativity and technical competence.</p>
-      <p><strong>Skills:</strong> HTML, CSS, JavaScript</p>
-    </div>
+        <div class="col">
+          <div class="card project-card h-100 shadow-sm border border-secondary border-opacity-10">
+            <div class="card-img-container">
+              <img src="Home page.png" alt="Student Examination Seating Arrangement">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 fw-bold mb-2">Student Examination Seating Arrangement</h3>
+              <div class="mb-3"><small class="text-muted">Jan 2025 – Mar 2025</small></div>
+              <p class="small text-body-secondary flex-grow-1 mb-0">This web-based application is designed to streamline the exam seating arrangement process in educational institutions. It provides admin functionalities for managing seating and student access to view assigned seats.</p>
+              <div class="skills-tags w-100 mt-3">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">SQL</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="project-card">
-      <h2>5. Cake World Web Page</h2>
-      <p>Developed a bakery-themed static website featuring images, product listings, and styled content layout.</p>
-      <p><strong>Skills:</strong> HTML, CSS</p>
-    </div>
+        <div class="col">
+          <div class="card project-card h-100 shadow-sm border border-secondary border-opacity-10">
+            <div class="card-img-container">
+              <img src="save.PNG" alt="ALS Bazzar">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 fw-bold mb-2">ALS Bazzar E-commerce website</h3>
+              <div class="mb-3"><small class="text-muted">Jan 2025 – Mar 2025</small></div>
+              <p class="small text-body-secondary flex-grow-1 mb-0">An eCommerce website designed for browsing catalog variations, fluid interactive cart management processing, and secure mock purchase user experiences.</p>
+              <div class="skills-tags w-100 mt-3">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<div class="project-card">
-      <h2>6. Mobile app testing - Banyan pro</h2>
-      <p>"Performed end-to-end testing on Banyan Pro mobile app, ensuring functionality, security, performance, and cross-platform compatibility.".</p>
-      <p><strong>Skills:</strong> Functional Testing</p>
-    </div>
+        <div class="col">
+          <div class="card project-card h-100 shadow-sm border border-secondary border-opacity-10">
+            <div class="card-img-container">
+              <img src="Admin Page.PNG" alt="Multi-Layered Protection">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 fw-bold mb-2">Multi-Layered Protection For Data Consistency</h3>
+              <div class="mb-3"><small class="text-muted">Aug 2025 – Sep 2025</small></div>
+              <p class="small text-body-secondary flex-grow-1 mb-0">Secure enterprise web application featuring cryptographically encrypted document uploads, role-based access tokens, and full admin evaluation blocks using DES and Fernet system rules.</p>
+              <div class="skills-tags w-100 mt-3">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">DES Algorithm</span>
+                <span class="tag">SQL</span>
+                <span class="tag">HTML/CSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="project-card">
-      <h2>7. WhatsApp Auto-Messaging Bot</h2>
-      <p>Python-based script to automate sending WhatsApp messages using the PyWhatKit library.</p>
-      <p><strong>Skills:</strong> Python, pywhatkit</p>
-    </div>
-    <div class="project-card">    
-      <img src="digital clock.PNG" class="project-image">
-      <h2>8. Digital Clock</h2>
-      <p>A live digital clock built with Python and Tkinter that updates every second.</p>
-      <p><strong>Skills:</strong> Python, Tkinter</p>
-    </div>
+        <div class="col">
+          <div class="card project-card h-100 shadow-sm border border-secondary border-opacity-10">
+            <div class="card-img-container">
+              <img src="home portfolio.PNG" alt="Portfolio Website">
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 fw-bold mb-2">Portfolio Website</h3>
+              <div class="mb-3"><small class="text-muted">Personal Project</small></div>
+              <p class="small text-body-secondary flex-grow-1 mb-0">Personal portfolio website created using modern web technologies. Showcases skills, experience, and projects in a multi-page layout with theme toggle and responsive design.</p>
+              <div class="skills-tags w-100 mt-3">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="project-card">
-      <img src="Calculator.PNG" class="project-image">
-      <h2>9. Calculator</h2>
-      <p>GUI-based calculator app built using Python's Tkinter. Supports basic arithmetic operations with a simple interface.</p>
-      <p><strong>Skills:</strong> Python, Tkinter</p>
-    </div>
+        <div class="col">
+          <div class="card project-card h-100 shadow-sm border border-secondary border-opacity-10 p-3">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 fw-bold mb-2">Cake World Web Page</h3>
+              <div class="mb-3"><small class="text-muted">Static Web Design</small></div>
+              <p class="small text-body-secondary flex-grow-1 mb-0">Developed a bakery-themed static website featuring crisp images, modular product listings, and a highly styled responsive layout interface.</p>
+              <div class="skills-tags w-100 mt-3">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="project-card">   
-      <img src="calender.PNG" class="project-image">
-      <h2>10. Calendar</h2>
-      <p>Created an interactive calendar application featuring a clean, user-friendly GUI. Users can easily browse months, view dates, and navigate between years. The project demonstrates strong GUI design skills, event handling, and logical structuring, providing a smooth and visually clear experience for managing and exploring dates</p>
-      <p><strong>Skills:</strong> Python, Tkinter</p>
-    </div> 
+        <div class="col">
+          <div class="card project-card h-100 shadow-sm border border-secondary border-opacity-10 p-3">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 fw-bold mb-2">Mobile App Testing - Banyan Pro</h3>
+              <div class="mb-3"><small class="text-muted">Quality Assurance</small></div>
+              <p class="small text-body-secondary flex-grow-1 mb-0">Performed complete end-to-end testing on the Banyan Pro mobile application environment, effectively verifying target systems functionality, core security layers, performance, and cross-platform mobile compatibility.</p>
+              <div class="skills-tags w-100 mt-3">
+                <span class="tag">Functional Testing</span>
+                <span class="tag">Mobile QA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card project-card h-100 shadow-sm border border-secondary border-opacity-10 p-3">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 fw-bold mb-2">Automated WhatsApp Messaging</h3>
+              <div class="mb-3"><small class="text-muted">Automation Scripting</small></div>
+              <p class="small text-body-secondary flex-grow-1 mb-0">Python-based process integration script written to automate customized message forwarding tasks efficiently utilizing the PyWhatKit execution library layer rules.</p>
+              <div class="skills-tags w-100 mt-3">
+                <span class="tag">Python</span>
+                <span class="tag">pywhatkit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card project-card h-100 shadow-sm border border-secondary border-opacity-10 p-3">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 fw-bold mb-2">Digital Clock</h3>
+              <div class="mb-3"><small class="text-muted">Desktop App</small></div>
+              <p class="small text-body-secondary flex-grow-1 mb-0">A lightweight live system digital clock built with Python and Tkinter engine loops that pulls system timestamps to refresh view configurations every single second.</p>
+              <div class="skills-tags w-100 mt-3">
+                <span class="tag">Python</span>
+                <span class="tag">Tkinter</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card project-card h-100 shadow-sm border border-secondary border-opacity-10 p-3">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 fw-bold mb-2">GUI Calculator</h3>
+              <div class="mb-3"><small class="text-muted">Desktop App</small></div>
+              <p class="small text-body-secondary flex-grow-1 mb-0">GUI-based calculation application structured inside Python's native Tkinter layout toolkit. Full support provided for standard arithmetic operators with a responsive matrix interface.</p>
+              <div class="skills-tags w-100 mt-3">
+                <span class="tag">Python</span>
+                <span class="tag">Tkinter</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card project-card h-100 shadow-sm border border-secondary border-opacity-10 p-3">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5 fw-bold mb-2">GUI Calendar App</h3>
+              <div class="mb-3"><small class="text-muted">Desktop App</small></div>
+              <p class="small text-body-secondary flex-grow-1 mb-0">Created an interactive local calendar application enabling desktop system users to navigate month variables and schedule matrices smoothly via a Tkinter engine frame.</p>
+              <div class="skills-tags w-100 mt-3">
+                <span class="tag">Python</span>
+                <span class="tag">Tkinter</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </main>
 
-  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // Dynamic Active Page Navigation State Highlight Engine
     const navLinks = document.querySelectorAll("nav a");
-    const currentPage = window.location.pathname.split("/").pop();
+    const currentPage = window.location.pathname.split("/").pop() || "projects.html";
 
     navLinks.forEach(link => {
       if (link.getAttribute("href") === currentPage) {
         link.classList.add("active");
-      }
-    });
-  });
-  
-  const toggleBtn = document.getElementById('themeToggle');
-  const body = document.body;
-
-  // Load saved theme
-  if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark');
-    toggleBtn.textContent = '☀️';
-  }
-
-  // Toggle theme on button click
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    const isDark = body.classList.contains('dark');
-
-    toggleBtn.textContent = isDark ? '☀️' : '🌙';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
-
-(function() {
-  const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, particles = [], orbs = [];
-
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function isDark() { return document.body.classList.contains('dark'); }
-
-  class Particle {
-    constructor() { this.reset(); }
-    reset() {
-      this.x = Math.random() * W;
-      this.y = Math.random() * H;
-      this.r = Math.random() * 1.8 + 0.4;
-      this.sx = (Math.random() - 0.5) * 0.4;
-      this.sy = (Math.random() - 0.5) * 0.4;
-      this.a = Math.random() * 0.5 + 0.1;
-    }
-    update() {
-      this.x += this.sx; this.y += this.sy;
-      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = isDark()
-        ? `rgba(102,170,255,${this.a})`
-        : `rgba(0,123,255,${this.a * 0.7})`;
-      ctx.fill();
-    }
-  }
-
-  class Orb {
-    constructor(i) {
-      this.x = Math.random() * W; this.y = Math.random() * H;
-      this.r = 130 + Math.random() * 100;
-      this.sx = (Math.random() - 0.5) * 0.15;
-      this.sy = (Math.random() - 0.5) * 0.15;
-      this.hue = [210, 240, 200, 190, 225][i];
-    }
-    update() {
-      this.x += this.sx; this.y += this.sy;
-      if (this.x < -this.r) this.x = W + this.r;
-      if (this.x > W + this.r) this.x = -this.r;
-      if (this.y < -this.r) this.y = H + this.r;
-      if (this.y > H + this.r) this.y = -this.r;
-    }
-    draw() {
-      const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
-      const a = isDark() ? 0.07 : 0.11;
-      g.addColorStop(0, `hsla(${this.hue},85%,60%,${a})`);
-      g.addColorStop(1, `hsla(${this.hue},85%,60%,0)`);
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = g;
-      ctx.fill();
-    }
-  }
-
-  for (let i = 0; i < 80; i++) particles.push(new Particle());
-  for (let i = 0; i < 5; i++) orbs.push(new Orb(i));
-
-  function loop() {
-    ctx.clearRect(0, 0, W, H);
-    orbs.forEach(o => { o.update(); o.draw(); });
-    particles.forEach(p => { p.update(); p.draw(); });
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const d = Math.sqrt(dx*dx + dy*dy);
-        if (d < 100) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = isDark()
-            ? `rgba(102,170,255,${(1-d/100)*0.15})`
-            : `rgba(0,100,255,${(1-d/100)*0.12})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
+        if(link.classList.contains('nav-link')) {
+          link.classList.add("fw-bold", "text-primary");
         }
       }
+    });
+
+    // Integrated Native Bootstrap 5 Light/Dark Theme Context Switcher
+    const toggleBtn = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        htmlElement.setAttribute('data-bs-theme', 'dark');
+        document.body.classList.add('dark');
+        toggleBtn.textContent = '☀️';
+      } else {
+        htmlElement.setAttribute('data-bs-theme', 'light');
+        document.body.classList.remove('dark');
+        toggleBtn.textContent = '🌙';
+      }
     }
-    requestAnimationFrame(loop);
-  }
-  loop();
-})();
 
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    applyTheme(savedTheme);
 
-</script>
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-bs-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  });
 
+  // Dynamic Interactive Fluid Particle Background Canvas Framework
+  (function() {
+    const canvas = document.getElementById('bg-canvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [], orbs = [];
+
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function isDark() { 
+      return document.documentElement.getAttribute('data-bs-theme') === 'dark'; 
+    }
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * W;
+        this.y = Math.random() * H;
+        this.r = Math.random() * 1.8 + 0.4;
+        this.sx = (Math.random() - 0.5) * 0.4;
+        this.sy = (Math.random() - 0.5) * 0.4;
+        this.a = Math.random() * 0.5 + 0.1;
+      }
+      update() {
+        this.x += this.sx; this.y += this.sy;
+        if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = isDark() ? `rgba(102,170,255,${this.a})` : `rgba(0,123,255,${this.a * 0.7})`;
+        ctx.fill();
+      }
+    }
+
+    class Orb {
+      constructor(i) {
+        this.x = Math.random() * W; this.y = Math.random() * H;
+        this.r = 130 + Math.random() * 100;
+        this.sx = (Math.random() - 0.5) * 0.15;
+        this.sy = (Math.random() - 0.5) * 0.15;
+        this.hue = [210, 240, 200, 190, 225][i];
+      }
+      update() {
+        this.x += this.sx; this.y += this.sy;
+        if (this.x < -this.r) this.x = W + this.r;
+        if (this.x > W + this.r) this.x = -this.r;
+        if (this.y < -this.r) this.y = H + this.r;
+        if (this.y > H + this.r) this.y = -this.r;
+      }
+      draw() {
+        const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
+        const a = isDark() ? 0.07 : 0.11;
+        g.addColorStop(0, `hsla(${this.hue},85%,60%,${a})`);
+        g.addColorStop(1, `hsla(${this.hue},85%,60%,0)`);
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 80; i++) particles.push(new Particle());
+    for (let i = 0; i < 5; i++) orbs.push(new Orb(i));
+
+    function loop() {
+      ctx.clearRect(0, 0, W, H);
+      orbs.forEach(o => { o.update(); o.draw(); });
+      particles.forEach(p => { p.update(); p.draw(); });
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx*dx + dy*dy);
+          if (d < 100) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = isDark() ? `rgba(102,170,255,${(1-d/100)*0.15})` : `rgba(0,100,255,${(1-d/100)*0.12})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+  </script>
 </body>
 </html>

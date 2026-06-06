@@ -4,73 +4,147 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio - Home</title>
-  <link rel="stylesheet" href="style.css" />
   
-<link rel="icon" type="image/png" href="fevicon image.png">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="fevicon image.png">
+  <style>
+    /* Crucial layer alignment fixes */
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    header {
+      position: relative;
+      z-index: 1030; /* Stays above main content, aligned with Bootstrap sticky limits */
+    }
+    main {
+      position: relative;
+      z-index: 2;
+    }
+    /* Simple Bootstrap dark mode support rules for custom text colors if style.css isn't loaded */
+    [data-bs-theme="dark"] body {
+      background-color: #121212;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
+
   <canvas id="bg-canvas"></canvas>
-  <header>
-    <h1>SANJAY A.K</h1>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="certifications.html">Certifications</a>
-      <a href="skills.html">Skills</a>
-      <a href="experience.html">Experience</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button id="themeToggle">🌙</button>
+
+  <header class="border-bottom border-secondary border-opacity-25">
+    <div class="d-flex align-items-center justify-content-between px-3 py-2">
+      <h1 class="m-0 h3 fw-bold">SANJAY A.K</h1>
+
+      <nav class="d-none d-md-flex align-items-center">
+        <a href="index.html" class="active me-3 text-decoration-none">Home</a>
+        <a href="certifications.html" class="me-3 text-decoration-none">Certifications</a>
+        <a href="skills.html" class="me-3 text-decoration-none">Skills</a>
+        <a href="experience.html" class="me-3 text-decoration-none">Experience</a>
+        <a href="projects.html" class="me-3 text-decoration-none">Projects</a>
+        <a href="contact.html" class="text-decoration-none">Contact</a>
+      </nav>
+
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-secondary me-2 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav">☰</button>
+        <button id="themeToggle" class="btn btn-sm btn-outline-secondary">🌙</button>
+      </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start bg-body text-body" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel" style="z-index: 1045;">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold" id="offcanvasNavLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <nav class="nav flex-column gap-2 fs-5">
+          <a class="nav-link py-2 ps-0 text-reset" href="index.html">Home</a>
+          <a class="nav-link py-2 ps-0 text-reset" href="certifications.html">Certifications</a>
+          <a class="nav-link py-2 ps-0 text-reset" href="skills.html">Skills</a>
+          <a class="nav-link py-2 ps-0 text-reset" href="experience.html">Experience</a>
+          <a class="nav-link py-2 ps-0 text-reset" href="projects.html">Projects</a>
+          <a class="nav-link py-2 ps-0 text-reset" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
   </header>
 
   <main class="fade-in">
-    
-    <section class="about">
-      <img src="linkedin.jpg" alt="Sanjay A.K" class="profile-pic" id="profilePhoto" />
-      <h2>About Me</h2>
-      <h2>I am a <span id="typewriter"></span></h2>
-      <p> I'm Sanjay A.K, 
-Emerging IT professional with a strong foundation in full-stack development and quality assurance, currently working as an Analyst Trainee at Cognizant. I hold a BCA degree and have gained hands-on experience through internships and real-time projects in web development and automation testing.
+    <div class="container py-5">
+      <div class="row align-items-center min-vh-75">
+        <div class="col-md-5 text-center mt-5 mt-md-0">
+          <img src="linkedin.jpg" alt="Sanjay A.K" class="profile-pic img-fluid shadow-lg rounded-circle border border-4 border-primary border-opacity-10" id="profilePhoto" style="max-width:260px; cursor: pointer;" />
+        </div>
+        
+        <div class="col-md-7 mt-4 mt-md-0">
+          <h2 class="mb-2 text-secondary h5 text-uppercase tracking-wider">About Me</h2>
+          <h3 class="mb-3 display-6 fw-bold">I am a <span id="typewriter" class="text-primary"></span></h3>
+          <p class="lead text-body-secondary">I'm Sanjay A.K — an emerging IT professional with a strong foundation in full-stack development and quality assurance, currently working as an Analyst Trainee at Cognizant. I hold a BCA degree and have gained hands-on experience through internships and real-time projects in web development and automation testing.</p>
+          <p class="text-body-secondary">Active hackathon participant and former Secretary of the PCEC CLG Empowerment Cell. I have presented and published project abstracts at international conferences, demonstrating continuous learning and innovation.</p>
+          <div class="mt-4">
+            <a href="Sanjay A K Resuma.pdf" download class="btn btn-primary me-2 px-4 shadow-sm">Download Resume</a>
+            <a href="contact.html" class="btn btn-outline-primary px-4">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-An active hackathon participant and former Secretary of the PCEC CLG Empowerment Cell, I have developed strong leadership, teamwork, and problem-solving skills. I have also presented and published project abstracts at international conferences, demonstrating my commitment to continuous learning and innovation.          
-</p>
-      <a href="Sanjay A K Resuma.pdf" download class="btn">Download Resume</a>
-    </section>
-    <!-- Modal Structure -->
-<div id="photoModal" class="image-modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="modalProfile">
-</div>
+    <div id="photoModal" class="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:2000; align-items:center; justify-content:center;">
+      <span class="close" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+      <img class="modal-content img-fluid m-auto" id="modalProfile" style="max-width:80%; max-height:80%; display:block; margin-top:10vh;">
+    </div>
   </main>
+        
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
   document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.querySelectorAll("nav a");
-    const currentPage = window.location.pathname.split("/").pop();
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
     navLinks.forEach(link => {
       if (link.getAttribute("href") === currentPage) {
         link.classList.add("active");
+        if(link.classList.contains('nav-link')) {
+          link.classList.add("fw-bold", "text-primary");
+        }
       }
     });
 
+    // Native Bootstrap 5 Theme handling engine
     const toggleBtn = document.getElementById('themeToggle');
-    const body = document.body;
+    const htmlElement = document.documentElement;
 
-    if (localStorage.getItem('theme') === 'dark') {
-      body.classList.add('dark');
-      toggleBtn.textContent = '☀️';
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        htmlElement.setAttribute('data-bs-theme', 'dark');
+        document.body.classList.add('dark');
+        toggleBtn.textContent = '☀️';
+      } else {
+        htmlElement.setAttribute('data-bs-theme', 'light');
+        document.body.classList.remove('dark');
+        toggleBtn.textContent = '🌙';
+      }
     }
 
+    // Initialize layout theme state
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    applyTheme(savedTheme);
+
     toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      const isDark = body.classList.contains('dark');
-      toggleBtn.textContent = isDark ? '☀️' : '🌙';
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      const currentTheme = htmlElement.getAttribute('data-bs-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
     });
 
-    // Typewriter Effect - Final Fix
+    // Typewriter Effect
     const roles = ["Full Stack Developer", "Software Tester"];
     const element = document.getElementById("typewriter");
     let part = 0;
@@ -86,17 +160,12 @@ An active hackathon participant and former Secretary of the PCEC CLG Empowerment
       }
 
       element.textContent = text;
-
       let delay = isDeleting ? 50 : 100;
 
-      // Pause at full text
       if (!isDeleting && text === current) {
         delay = 1500;
         isDeleting = true;
-      }
-
-      // Pause after deletion
-      else if (isDeleting && text === "") {
+      } else if (isDeleting && text === "") {
         isDeleting = false;
         part = (part + 1) % roles.length;
         delay = 500;
@@ -104,124 +173,129 @@ An active hackathon participant and former Secretary of the PCEC CLG Empowerment
 
       setTimeout(typeEffect, delay);
     }
-
-    typeEffect();
+    if(element) typeEffect();
   });
-   const profilePhoto = document.getElementById('profilePhoto');
+
+  // Modal Functionality
+  const profilePhoto = document.getElementById('profilePhoto');
   const photoModal = document.getElementById('photoModal');
   const modalProfile = document.getElementById('modalProfile');
-  const closeBtn = photoModal.querySelector('.close');
+  const closeBtn = photoModal ? photoModal.querySelector('.close') : null;
 
-  // Open modal on click
-  profilePhoto.addEventListener('click', () => {
-    modalProfile.src = profilePhoto.src;
-    photoModal.style.display = "block";
-  });
+  if (profilePhoto && photoModal) {
+    profilePhoto.addEventListener('click', () => {
+      modalProfile.src = profilePhoto.src;
+      photoModal.style.display = "flex";
+    });
 
-  // Close modal on X click
-  closeBtn.addEventListener('click', () => {
-    photoModal.style.display = "none";
-  });
-
-  // Close modal if clicked outside the image
-  photoModal.addEventListener('click', (e) => {
-    if (e.target === photoModal) {
+    closeBtn.addEventListener('click', () => {
       photoModal.style.display = "none";
-    }
-  });
+    });
 
-(function() {
-  const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, particles = [], orbs = [];
-
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function isDark() { return document.body.classList.contains('dark'); }
-
-  class Particle {
-    constructor() { this.reset(); }
-    reset() {
-      this.x = Math.random() * W;
-      this.y = Math.random() * H;
-      this.r = Math.random() * 1.8 + 0.4;
-      this.sx = (Math.random() - 0.5) * 0.4;
-      this.sy = (Math.random() - 0.5) * 0.4;
-      this.a = Math.random() * 0.5 + 0.1;
-    }
-    update() {
-      this.x += this.sx; this.y += this.sy;
-      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = isDark()
-        ? `rgba(102,170,255,${this.a})`
-        : `rgba(0,123,255,${this.a * 0.7})`;
-      ctx.fill();
-    }
+    photoModal.addEventListener('click', (e) => {
+      if (e.target === photoModal || e.target === closeBtn) {
+        photoModal.style.display = "none";
+      }
+    });
   }
 
-  class Orb {
-    constructor(i) {
-      this.x = Math.random() * W; this.y = Math.random() * H;
-      this.r = 130 + Math.random() * 100;
-      this.sx = (Math.random() - 0.5) * 0.15;
-      this.sy = (Math.random() - 0.5) * 0.15;
-      this.hue = [210, 240, 200, 190, 225][i];
-    }
-    update() {
-      this.x += this.sx; this.y += this.sy;
-      if (this.x < -this.r) this.x = W + this.r;
-      if (this.x > W + this.r) this.x = -this.r;
-      if (this.y < -this.r) this.y = H + this.r;
-      if (this.y > H + this.r) this.y = -this.r;
-    }
-    draw() {
-      const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
-      const a = isDark() ? 0.07 : 0.11;
-      g.addColorStop(0, `hsla(${this.hue},85%,60%,${a})`);
-      g.addColorStop(1, `hsla(${this.hue},85%,60%,0)`);
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = g;
-      ctx.fill();
-    }
-  }
+  // Interactive Background Canvas Logic
+  (function() {
+    const canvas = document.getElementById('bg-canvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [], orbs = [];
 
-  for (let i = 0; i < 80; i++) particles.push(new Particle());
-  for (let i = 0; i < 5; i++) orbs.push(new Orb(i));
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
 
-  function loop() {
-    ctx.clearRect(0, 0, W, H);
-    orbs.forEach(o => { o.update(); o.draw(); });
-    particles.forEach(p => { p.update(); p.draw(); });
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const d = Math.sqrt(dx*dx + dy*dy);
-        if (d < 100) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = isDark()
-            ? `rgba(102,170,255,${(1-d/100)*0.15})`
-            : `rgba(0,100,255,${(1-d/100)*0.12})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
+    function isDark() { 
+      return document.documentElement.getAttribute('data-bs-theme') === 'dark'; 
+    }
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * W;
+        this.y = Math.random() * H;
+        this.r = Math.random() * 1.8 + 0.4;
+        this.sx = (Math.random() - 0.5) * 0.4;
+        this.sy = (Math.random() - 0.5) * 0.4;
+        this.a = Math.random() * 0.5 + 0.1;
+      }
+      update() {
+        this.x += this.sx; this.y += this.sy;
+        if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = isDark()
+          ? `rgba(102,170,255,${this.a})`
+          : `rgba(0,123,255,${this.a * 0.7})`;
+        ctx.fill();
       }
     }
-    requestAnimationFrame(loop);
-  }
-  loop();
-})();
 
-</script>
+    class Orb {
+      constructor(i) {
+        this.x = Math.random() * W; this.y = Math.random() * H;
+        this.r = 130 + Math.random() * 100;
+        this.sx = (Math.random() - 0.5) * 0.15;
+        this.sy = (Math.random() - 0.5) * 0.15;
+        this.hue = [210, 240, 200, 190, 225][i];
+      }
+      update() {
+        this.x += this.sx; this.y += this.sy;
+        if (this.x < -this.r) this.x = W + this.r;
+        if (this.x > W + this.r) this.x = -this.r;
+        if (this.y < -this.r) this.y = H + this.r;
+        if (this.y > H + this.r) this.y = -this.r;
+      }
+      draw() {
+        const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
+        const a = isDark() ? 0.07 : 0.11;
+        g.addColorStop(0, `hsla(${this.hue},85%,60%,${a})`);
+        g.addColorStop(1, `hsla(${this.hue},85%,60%,0)`);
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 80; i++) particles.push(new Particle());
+    for (let i = 0; i < 5; i++) orbs.push(new Orb(i));
+
+    function loop() {
+      ctx.clearRect(0, 0, W, H);
+      orbs.forEach(o => { o.update(); o.draw(); });
+      particles.forEach(p => { p.update(); p.draw(); });
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx*dx + dy*dy);
+          if (d < 100) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = isDark()
+              ? `rgba(102,170,255,${(1-d/100)*0.15})`
+              : `rgba(0,100,255,${(1-d/100)*0.12})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+  </script>
+</body>
+</html>
